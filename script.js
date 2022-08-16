@@ -8,7 +8,7 @@
 
 // document.querySelector(".guess").value = 23;
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 5;
 
 document.querySelector(".check").addEventListener("click", function () {
@@ -38,4 +38,14 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").textContent = 0;
     }
   }
+});
+
+document.querySelector(".again").addEventListener("click", function(){
+  score = 5;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+  document.querySelector(".message").textContent = "Play😅..."
+  document.querySelector(".score").textContent = score
+  document.querySelector(".number").textContent = "?"
+  document.querySelector(".guess").value = null;
 });
