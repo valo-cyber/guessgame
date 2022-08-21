@@ -5,10 +5,10 @@ const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".close-modal");
 const btnOpenModal = document.querySelectorAll(".show-modal");
 
-const openModal =  function () {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  }
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
 
 for (let i = 0; i < btnOpenModal.length; i++) {
   btnOpenModal[i].addEventListener("click", openModal);
@@ -22,3 +22,20 @@ const closeModal = function () {
 
 btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
+
+// const keyboard = function (e) {
+//   if (e.key === "Escape"){
+//     if(!modal.classList.contains("hidden")){
+//       closeModal();
+//     }
+//   }
+// };
+
+// Another of way of writing the above code
+const keyboard = function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+};
+
+document.addEventListener("keydown", keyboard);
